@@ -24,6 +24,6 @@ node {
         break;
       }
       echo "Status ${result}"
-      sleep: 5s
+      sleep: 10s
     }
 }
