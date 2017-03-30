@@ -12,7 +12,7 @@ node {
     }
 
   stage 'Update Service in Stack'
-    sh "aws cloudformation update-stack --stack-name ${stackname} --use-previous-template --capabilities CAPABILITY_NAMED_IAM  --region us-east-1 --profile isengard --parameters ParameterKey=VPC,UsePreviousValue=true ParameterKey=Subnets,UsePreviousValue=true ParameterKey=KeyName,UsePreviousValue=true ParameterKey=TemplateBucket,UsePreviousValue=true ParameterKey=Repository,UsePreviousValue=true ParameterKey=RepositoryTag,ParameterValue=latest"
+    sh "aws cloudformation update-stack --stack-name ${stackname} --use-previous-template --capabilities CAPABILITY_NAMED_IAM  --region us-east-1  --parameters ParameterKey=VPC,UsePreviousValue=true ParameterKey=Subnets,UsePreviousValue=true ParameterKey=KeyName,UsePreviousValue=true ParameterKey=TemplateBucket,UsePreviousValue=true ParameterKey=Repository,UsePreviousValue=true ParameterKey=RepositoryTag,ParameterValue=latest"
 
   stage 'Wait for Completion'
     result = sh(returnStdout: true, script: "aws cloudformation describe-stacks --stack-name Nginx-ECS --region us-east-1 --query 'Stacks[*].StackStatus' --output text")
