@@ -1,5 +1,5 @@
 node {
-  stackname = "Nginx-ECS2"
+  stackname = "Nginx-ECS"
   buildnumber = env.BUILD_NUMBER
   ecrRegistry = "https://558201170204.dkr.ecr.us-east-1.amazonaws.com"
   stage 'Checkout'
@@ -28,6 +28,6 @@ node {
         break;
       }
       echo "Status ${result}"
-      sleep: 10000
+      sleep: "10s"
     }
 }
