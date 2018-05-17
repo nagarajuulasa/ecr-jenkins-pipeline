@@ -1,7 +1,7 @@
 node {
   stackname = "Nginx-ECS"
   buildnumber = env.BUILD_NUMBER
-  ecrRegistry = "https://558201170204.dkr.ecr.us-east-1.amazonaws.com"
+  ecrRegistry = "https://[Account Number].dkr.ecr.us-east-1.amazonaws.com"
   stage 'Checkout'
     checkout scm
 
